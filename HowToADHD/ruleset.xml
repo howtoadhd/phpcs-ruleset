@@ -4,11 +4,11 @@
 
 	<!-- ##### WordPress sniffs #####-->
 	<rule ref="WordPress">
-		<exclude name="WordPress.Files.FileName"/>
+		<exclude ref="WordPress.Files.FileName"/>
 	</rule>
 
 	<!-- ##### Sniffs for PHP cross-version compatibility ##### -->
-	<config name="testVersion" value="7.0-"/>
+	<config name="testVersion" value="7.0-99.0"/>
 	<rule ref="PHPCompatibility"/>
 
 	<rule ref="Squiz.ControlStructures">
@@ -50,4 +50,7 @@
 	<rule ref="Squiz.Formatting.OperatorBracket.MissingBrackets"/>
 
 	<rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+
+	<!-- Use short array syntax -->
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax.Found"/>
 </ruleset>
