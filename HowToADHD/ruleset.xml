@@ -8,7 +8,7 @@
 	</rule>
 
 	<!-- ##### Sniffs for PHP cross-version compatibility ##### -->
-	<config name="testVersion" value="7.0-99.0"/>
+	<config name="testVersion" value="7.0-"/>
 	<rule ref="PHPCompatibility"/>
 
 	<rule ref="Squiz.ControlStructures">
