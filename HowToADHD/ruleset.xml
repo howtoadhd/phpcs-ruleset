@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<ruleset name="HowToADHD">
+	<description>HowToADHD Coding Standards</description>
+
+	<!-- ##### WordPress sniffs #####-->
+	<rule ref="WordPress">
+		<exclude name="WordPress.Files.FileName"/>
+	</rule>
+
+	<!-- ##### Sniffs for PHP cross-version compatibility ##### -->
+	<config name="testVersion" value="7.0-99.0"/>
+	<rule ref="PHPCompatibility"/>
+
+	<rule ref="Squiz.ControlStructures">
+		<!-- Prevent errors for Spaces after closing braces, as we want a newline -->
+		<exclude name="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace"/>
+		<!-- elseif is fine by WP -->
+		<exclude name="Squiz.ControlStructures.ElseIfDeclaration"/>
+		<!-- WP got nothing about switch -->
+		<exclude name="Squiz.ControlStructures.SwitchDeclaration"/>
+	</rule>
+
+	<!-- ##### Some miscellanous other sniffs ##### -->
+	<!-- Added for lowercase keywords check -->
+	<rule ref="Squiz.ControlStructures.ForEachLoopDeclaration">
+		<properties>
+			<property name="requiredSpacesAfterOpen" value="1"/>
+			<property name="requiredSpacesBeforeClose" value="1"/>
+		</properties>
+	</rule>
+
+	<rule ref="Squiz.ControlStructures.ForLoopDeclaration">
+		<properties>
+			<property name="requiredSpacesAfterOpen" value="1"/>
+			<property name="requiredSpacesBeforeClose" value="1"/>
+		</properties>
+	</rule>
+
+	<!-- Application memory use! -->
+	<rule ref="Generic.Strings.UnnecessaryStringConcat">
+		<properties>
+			<property name="allowMultiline" value="true"/>
+		</properties>
+	</rule>
+
+	<!-- Error prevention: Make sure the condition in a inline if declaration is bracketed -->
+	<rule ref="Squiz.ControlStructures.InlineIfDeclaration"/>
+
+	<!-- Error prevention: Make sure arithmetics are bracketed -->
+	<rule ref="Squiz.Formatting.OperatorBracket.MissingBrackets"/>
+
+	<rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+</ruleset>
